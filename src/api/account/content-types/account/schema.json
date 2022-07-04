@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "accounts",
+  "info": {
+    "singularName": "account",
+    "pluralName": "accounts",
+    "displayName": "Account",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "accounts"
+    },
+    "expired": {
+      "type": "date",
+      "required": true
+    },
+    "server_detail": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::server-detail.server-detail",
+      "inversedBy": "accounts"
+    },
+    "network": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::network.network",
+      "inversedBy": "accounts"
+    },
+    "password": {
+      "type": "string",
+      "unique": true
+    },
+    "username": {
+      "type": "string",
+      "unique": true
+    },
+    "uuid": {
+      "type": "uid"
+    }
+  }
+}

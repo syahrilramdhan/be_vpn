@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "server_details",
+  "info": {
+    "singularName": "server-detail",
+    "pluralName": "server-details",
+    "displayName": "Server_detail",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hostname": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "server_ip": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "server_type": {
+      "type": "enumeration",
+      "enum": [
+        "Premium",
+        "Free"
+      ],
+      "required": true
+    },
+    "server_status": {
+      "type": "enumeration",
+      "enum": [
+        "Active",
+        "Maintenance",
+        "Full",
+        "Error"
+      ]
+    },
+    "server": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::server.server",
+      "inversedBy": "server_details"
+    },
+    "server_region": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::server-region.server-region",
+      "inversedBy": "server_details"
+    },
+    "networks": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::network.network",
+      "inversedBy": "server_details"
+    },
+    "accounts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::account.account",
+      "mappedBy": "server_detail"
+    }
+  }
+}

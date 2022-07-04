@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "servers",
+  "info": {
+    "singularName": "server",
+    "pluralName": "servers",
+    "displayName": "Servers",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "server_name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "server_details": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::server-detail.server-detail",
+      "mappedBy": "server"
+    }
+  }
+}

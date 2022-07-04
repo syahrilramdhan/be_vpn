@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "networks",
+  "info": {
+    "singularName": "network",
+    "pluralName": "networks",
+    "displayName": "Network"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "network_name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "server_details": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::server-detail.server-detail",
+      "inversedBy": "networks"
+    },
+    "accounts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::account.account",
+      "mappedBy": "network"
+    }
+  }
+}

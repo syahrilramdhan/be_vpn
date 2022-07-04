@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "protocols",
+  "info": {
+    "singularName": "protocol",
+    "pluralName": "protocols",
+    "displayName": "Protocol",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "protocol_name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "networks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::network.network"
+    }
+  }
+}

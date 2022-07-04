@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "server_regions",
+  "info": {
+    "singularName": "server-region",
+    "pluralName": "server-regions",
+    "displayName": "Server_region",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "region": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "region_code": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "server_details": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::server-detail.server-detail",
+      "mappedBy": "server_region"
+    }
+  }
+}
